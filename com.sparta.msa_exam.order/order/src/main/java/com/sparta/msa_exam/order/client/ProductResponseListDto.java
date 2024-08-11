@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductResponseListDto {
-    private List<ProductResponseDto> productResponseDtos;
+    private List<ProductResponseDto> products;
 }

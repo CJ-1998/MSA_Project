@@ -30,7 +30,7 @@ public class OrderService {
         List<MappedOrder> mappedOrders = new ArrayList<>();
 
         ProductResponseListDto products = productClient.getProducts();
-        List<ProductResponseDto> productResponseDtos = products.getProductResponseDtos();
+        List<ProductResponseDto> productResponseDtos = products.getProducts();
 
         for (Long productId : orderRequestDto.getOrderItemIds()) {
             boolean check = false;
@@ -58,7 +58,7 @@ public class OrderService {
 
         ProductResponseListDto products = productClient.getProducts();
 
-        List<ProductResponseDto> productResponseDtos = products.getProductResponseDtos();
+        List<ProductResponseDto> productResponseDtos = products.getProducts();
 
         boolean check = false;
         for (ProductResponseDto productResponseDto : productResponseDtos) {
