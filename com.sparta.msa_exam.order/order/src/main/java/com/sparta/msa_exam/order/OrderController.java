@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class OrderController {
 
     @Value("${server.port}")
-    private final String port;
+    private Integer port;
 
     private final OrderService orderService;
 
@@ -31,7 +31,7 @@ public class OrderController {
         orderService.createOrder(orderRequestDto);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
 
         return new ResponseEntity(headers, HttpStatus.OK);
     }
@@ -42,7 +42,7 @@ public class OrderController {
         Boolean addCheck = orderService.addProductInOrder(orderId, orderOneRequestDto.getProductId());
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
 
         return new ResponseEntity(addCheck, headers, HttpStatus.OK);
     }
@@ -52,7 +52,7 @@ public class OrderController {
         OrderResponseDto orderResponseDto = orderService.getOneOrder(orderId);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
 
         return new ResponseEntity(orderResponseDto, headers, HttpStatus.OK);
     }

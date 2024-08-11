@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductController {
 
     @Value("${server.port}")
-    private final String port;
+    private Integer port;
 
     private final ProductService productService;
 
@@ -29,7 +29,7 @@ public class ProductController {
         ProductAddResponseDto productAddResponseDto = productService.createProduct(productAddRequestDto);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
 
         return new ResponseEntity(productAddResponseDto, headers, HttpStatus.OK);
     }
@@ -39,7 +39,7 @@ public class ProductController {
         ProductListResponseDto productListResponseDto = productService.getProducts();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
 
         return new ResponseEntity(productListResponseDto, headers, HttpStatus.OK);
     }

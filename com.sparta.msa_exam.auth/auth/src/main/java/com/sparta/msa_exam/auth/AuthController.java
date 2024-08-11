@@ -19,7 +19,7 @@ public class AuthController {
     private final AuthService authService;
 
     @Value("${server.port}")
-    private final String port;
+    private Integer port;
 
 
     @PostMapping("/auth/signIn")
@@ -27,7 +27,7 @@ public class AuthController {
         String token = authService.signIn(signInRequest.getUserId(), signInRequest.getPassword());
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
         return new ResponseEntity<>(new AuthResponse(token), headers, HttpStatus.OK);
     }
 
@@ -36,7 +36,7 @@ public class AuthController {
         User createdUser = authService.signUp(user);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Server-Port", port);
+        headers.add("Server-Port", String.valueOf(port));
         return new ResponseEntity<>(createdUser, headers, HttpStatus.OK);
     }
 
