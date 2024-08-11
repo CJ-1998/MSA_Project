@@ -1,6 +1,14 @@
 spring:
   application:
     name: product-service
+
+#  profiles:
+#    active:
+#      - dev
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+
 server:
   port: 19093
 eureka:
@@ -15,3 +23,11 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+
+#jpa:
+#  hibernate:
+#    ddl-auto: update
+#  properties:
+#    hibernate:
+#      dialect: org.hibernate.dialect.MySQLDialect

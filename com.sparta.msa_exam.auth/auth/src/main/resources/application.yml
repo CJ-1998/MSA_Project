@@ -2,6 +2,13 @@ spring:
   application:
     name: auth-service
 
+#  profiles:
+#    active:
+#      - dev
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+
 eureka:
   client:
     service-url:
@@ -14,3 +21,10 @@ service:
 
 server:
   port: 19095
+
+#jpa:
+#  hibernate:
+#    ddl-auto: update
+#  properties:
+#    hibernate:
+#      dialect: org.hibernate.dialect.MySQLDialect
